@@ -1,0 +1,1190 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio - Merina Hamzaoui</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Sora:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-dark: #0b0e13;
+        --bg-deep: #101522;
+        --panel-dark: #121722;
+        --panel-light: #ffffff;
+        --ink-light: #f7f8fa;
+        --ink-dark: #0b0e13;
+        --muted: #a2adbb;
+        --line-light: rgba(255, 255, 255, 0.12);
+        --line-dark: rgba(11, 14, 19, 0.12);
+        --blue: #0a1f4f;
+        --blue-bright: #0f2f7a;
+        --glow: rgba(30, 80, 200, 0.35);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+        background: radial-gradient(circle at 15% 15%, rgba(30, 80, 200, 0.15), transparent 40%),
+          linear-gradient(135deg, #0b0e13 0%, #0f1420 52%, #f7f8fa 52%, #ffffff 100%);
+        color: var(--ink-light);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(12px);
+        background: rgba(11, 14, 19, 0.86);
+        border-bottom: 1px solid var(--line-light);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        padding: 18px clamp(20px, 6vw, 80px);
+      }
+
+      .brand {
+        font-family: "Sora", "Trebuchet MS", sans-serif;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        padding: 8px 14px;
+        border: 1px solid var(--line-light);
+        border-radius: 999px;
+      }
+
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 0 auto;
+        font-size: 14px;
+        color: var(--muted);
+      }
+
+      .nav-links a {
+        padding: 8px 12px;
+        border: 1px solid var(--line-light);
+        border-radius: 999px;
+        transition: border-color 0.2s ease, color 0.2s ease;
+      }
+
+      .nav-links a:hover {
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      main {
+        padding: 32px clamp(20px, 6vw, 80px) 96px;
+        display: grid;
+        gap: 44px;
+      }
+
+      .section {
+        border-radius: 24px;
+        padding: clamp(22px, 4vw, 36px);
+      }
+
+      .section.dark {
+        background: var(--panel-dark);
+        border: 1px solid var(--line-light);
+        color: var(--ink-light);
+      }
+
+      .section.light {
+        background: var(--panel-light);
+        border: 1px solid var(--line-dark);
+        color: var(--ink-dark);
+      }
+
+      .section-header {
+        display: grid;
+        gap: 8px;
+        margin-bottom: 18px;
+      }
+
+      .section-title {
+        font-family: "Sora", "Trebuchet MS", sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+        font-size: 12px;
+        margin: 0;
+      }
+
+      .section-intro {
+        margin: 0;
+        font-size: 14px;
+        color: #5a6672;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+        gap: 22px;
+        align-items: center;
+        position: relative;
+      }
+
+      .hero-left,
+      .hero-right {
+        padding: clamp(18px, 4vw, 32px);
+        border-radius: 18px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-left {
+        background: #0f1420;
+      }
+
+      .hero-right {
+        background: #1b2232;
+        display: grid;
+        justify-items: center;
+        align-content: start;
+        gap: 12px;
+      }
+
+      .hero-right::before {
+        content: "";
+        position: absolute;
+        left: -48px;
+        top: 0;
+        bottom: 0;
+        width: 96px;
+        background: #1b2232;
+        clip-path: polygon(100% 0, 0 0, 100% 100%);
+      }
+
+      .hero h1 {
+        font-family: "Sora", "Trebuchet MS", sans-serif;
+        font-size: clamp(28px, 4vw, 48px);
+        margin: 0 0 12px;
+      }
+
+      .hero p {
+        margin: 0 0 16px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .cta-row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .cta {
+        border-radius: 999px;
+        padding: 12px 18px;
+        border: 1px solid var(--line-light);
+        background: transparent;
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .cta.primary {
+        background: var(--blue-bright);
+        border-color: var(--blue-bright);
+        box-shadow: 0 12px 28px var(--glow);
+      }
+
+      .cta:hover {
+        transform: translateY(-2px);
+      }
+
+      .hero-card {
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        display: grid;
+        gap: 12px;
+        justify-items: center;
+        align-content: start;
+        max-width: 320px;
+      }
+
+      .hero-card img {
+        width: 160px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        background: #1b2232;
+      }
+
+      .hero-links {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero-link {
+        border: 1px solid var(--line-light);
+        border-radius: 999px;
+        padding: 8px 14px;
+        font-size: 13px;
+        color: #fff;
+      }
+
+      .experience-grid {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .experience-card {
+        border: 1px solid var(--line-dark);
+        border-radius: 18px;
+        padding: 14px 16px;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .experience-head {
+        display: grid;
+        gap: 6px;
+      }
+
+      .experience-title {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 8px;
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.3;
+      }
+
+      .experience-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 24px rgba(10, 31, 79, 0.12);
+      }
+
+      .experience-card h3 {
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.3;
+      }
+
+      .experience-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        font-size: 12.5px;
+        color: #5a6672;
+      }
+
+      .experience-meta span {
+        border: 1px solid #e3e7ee;
+        border-radius: 999px;
+        padding: 4px 8px;
+        background: #f7f8fb;
+      }
+
+      .experience-divider {
+        height: 1px;
+        width: 100%;
+        background: #e7ebf2;
+      }
+
+      .experience-card p {
+        margin: 0;
+        color: #555f6a;
+        line-height: 1.55;
+        font-size: 13.5px;
+      }
+
+      .experience-summary {
+        color: #4f5963;
+      }
+
+      .experience-label {
+        text-transform: none;
+        letter-spacing: 0.04em;
+        font-size: 12px;
+        font-weight: 600;
+        color: #3f4852;
+        margin: 0;
+        display: inline-block;
+        line-height: 1.1;
+      }
+
+      .experience-body {
+        display: grid;
+        gap: 8px;
+      }
+
+      .experience-list {
+        margin: 0;
+        padding-left: 16px;
+        color: #555f6a;
+        line-height: 1.5;
+        font-size: 13.5px;
+      }
+
+      .experience-list li {
+        margin-bottom: 4px;
+      }
+
+      .tabs {
+        display: grid;
+        gap: 16px;
+      }
+
+      .tabs-separator {
+        height: 1px;
+        width: 100%;
+        background: #e7ebf2;
+      }
+
+      .tab-buttons {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        padding: 0;
+        border: none;
+        background: transparent;
+      }
+
+      .tab-button {
+        border: none;
+        background: #f1f4fb;
+        color: #3a4350;
+        padding: 10px 18px;
+        border-radius: 999px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tab-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(15, 47, 122, 0.12);
+      }
+
+      .tab-button:active {
+        transform: translateY(0);
+        box-shadow: 0 6px 14px rgba(15, 47, 122, 0.18);
+      }
+
+      .tab-button.active {
+        background: var(--blue-bright);
+        color: #fff;
+        box-shadow: 0 10px 20px rgba(15, 47, 122, 0.2);
+      }
+
+      .tab-button:focus-visible {
+        outline: 2px solid rgba(15, 47, 122, 0.35);
+        outline-offset: 2px;
+      }
+
+      .tab-panel {
+        display: none;
+        gap: 16px;
+      }
+
+      .tab-panel.active {
+        display: grid;
+      }
+
+      .tab-panel.grid {
+        max-width: 100%;
+        margin: 0;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+
+      .tab-desc {
+        grid-column: 1 / -1;
+        margin: 0;
+        color: #5a6672;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .project-card {
+        border: 1px solid var(--line-dark);
+        border-radius: 18px;
+        overflow: hidden;
+        background: #fff;
+        display: grid;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 24px rgba(10, 31, 79, 0.15);
+      }
+
+      .project-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        background: #e7ebf2;
+      }
+
+      .project-content {
+        padding: 16px 18px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .project-content h3 {
+        margin: 0;
+        font-size: 18px;
+      }
+
+      .project-content p {
+        margin: 0;
+        color: #555f6a;
+        line-height: 1.6;
+        font-size: 14px;
+      }
+
+      .tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tech span {
+        background: #eef1f7;
+        border: 1px solid #d8dde6;
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-size: 12px;
+      }
+
+      .project-links {
+        display: flex;
+        gap: 10px;
+        margin-top: 8px;
+        padding-top: 8px;
+        border-top: 1px solid #e7ebf2;
+      }
+
+      .project-links a {
+        font-size: 13px;
+        font-weight: 600;
+        color: #fff;
+        background: var(--blue-bright);
+        border: 1px solid var(--blue-bright);
+        padding: 8px 14px;
+        border-radius: 999px;
+        box-shadow: 0 10px 20px rgba(15, 47, 122, 0.2);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .project-links a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 24px rgba(15, 47, 122, 0.28);
+      }
+
+      .skills {
+  display: grid;
+  gap: 14px;
+}
+
+.skill-group {
+  border: 1px solid var(--line-dark);
+  border-radius: 16px;
+  padding: 14px 16px;
+  background: #fff;
+  display: grid;
+  gap: 10px;
+  box-shadow: 0 10px 26px rgba(10, 31, 79, 0.08);
+}
+
+.skill-title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #3f4852;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill {
+  border: 1px solid var(--line-dark);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 13px;
+  background: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.skill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(10, 31, 79, 0.12);
+  background: #f3f6ff;
+}
+      .contact {
+        display: grid;
+        gap: 16px;
+      }
+
+      .contact-wrap {
+        display: grid;
+        gap: 18px;
+      }
+
+      .contact-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .contact-card {
+        flex: 1 1 220px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 16px;
+        border-radius: 16px;
+        border: 1px solid #e7ebf2;
+        background: #f9fafc;
+        color: var(--blue);
+        font-weight: 600;
+        box-shadow: 0 10px 24px rgba(10, 31, 79, 0.08);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 14px 28px rgba(10, 31, 79, 0.14);
+        border-color: rgba(15, 47, 122, 0.35);
+      }
+
+      .contact-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: #0f2f7a;
+        color: #fff;
+        flex-shrink: 0;
+        box-shadow: 0 10px 20px rgba(15, 47, 122, 0.22);
+      }
+
+      .contact-label {
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-size: 10px;
+        color: #5a6672;
+        font-weight: 600;
+        margin-bottom: 2px;
+      }
+
+      .contact-value {
+        display: block;
+        font-size: 14px;
+        color: #0a1f4f;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-right::before {
+          display: none;
+        }
+
+        .experience-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <div class="brand">Portfolio</div>
+        <nav class="nav-links">
+          <a href="#accueil">Accueil</a>
+          <a href="#apropos">A propos</a>
+          <a href="#experiences">Expérience</a>
+          <a href="#projets">Projets</a>
+          <a href="#competences">Compétences</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section dark reveal" id="accueil">
+        <div class="section-header">
+          <p class="section-title">Accueil</p>
+        </div>
+        <div class="hero">
+          <div class="hero-left">
+            <h1>Product Owner | Pilotage de projets informatiques</h1>
+            <p>Conception, pilotage et qualité logicielle de solutions digitales innovantes.</p>
+            <div class="cta-row">
+              <a class="cta primary" href="#projets">Voir mes projets</a>
+              <a class="cta" href="CV-MERINA-H.pdf" download>Télécharger mon CV</a>
+            </div>
+          </div>
+          <div class="hero-right">
+            <div class="hero-card">
+              <img src="mer.jpg" alt="Portrait de Merina Hamzaoui" />
+              <strong>Merina Hamzaoui</strong>
+              <span>Product Owner</span>
+              <div class="hero-links">
+                <a class="hero-link" href="https://github.com/hamzaoui12">GitHub</a>
+                <a class="hero-link" href="https://www.linkedin.com/in/merina-hamzaoui/">LinkedIn</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section light reveal" id="apropos">
+        <div class="section-header">
+          <p class="section-title">A propos</p>
+          <p class="section-intro">
+            Cinq ans dans l'IT, avec une base technique en developpement web et une evolution progressive vers lagestion de projets et le role de cheffe de projet / Product Owner. polyvalente J'aime prendre des initiatives et je m'adapte facilement aux
+                nouveaux contextes. Mon exigence de qualite peut me rendre perfectionniste, et mon impatience me pousse
+                a relancer pour faire avancer les sujets.  j’interviens sur l’ensemble des étapes clés : cadrage, analyse
+des besoins, planification, coordination des équipes et pilotage opérationnel. Maîtrisant les environnements
+Agile, je prends également en charge la structuration des user stories, la priorisation des évolutions ainsi que la
+réalisation de la recette fonctionnelle afin de garantir la qualité des livrables.
+Mes connaissances techniques et ma capacité à faciliter les échanges entre les métiers et les équipes de
+développement renforcent l’efficacité des projets.
+          </p>
+        </div>
+      </section>
+
+      <section class="section light reveal" id="experiences">
+  <div class="section-header">
+    <p class="section-title">Experience professionnelle</p>
+  </div>
+  <div class="experience-grid">
+    <article class="experience-card">
+      <div class="experience-head">
+        <h3 class="experience-title">Product Owner — Contrat en alternance</h3>
+        <div class="experience-meta">
+          <span>La Poste</span>
+          <span>Dec. 2023 - Jan. 2026</span>
+          <span>Paris, Ile-de-France</span>
+        </div>
+        <div class="experience-divider" aria-hidden="true"></div>
+      </div>
+      <div class="experience-body"><p class="experience-summary">
+        Deploiement d'un outil de facturation et de contractualisation pour les forces de vente (La Poste et Mediaposte),
+        afin de gerer les campagnes publicitaires non adressees basees sur des offres IP, data et digital.
+      </p>
+      <p class="experience-label">Missions principales</p>
+      <ul class="experience-list">
+        <li>Definition et cadrage du perimetre du projet (COPIL, COSUI, ateliers)</li>
+        <li>Redaction des user stories d'evolutions et corrections</li>
+        <li>Suivi et coordination du projet en Agile avec la MOE</li>
+        <li>Elaboration des plannings et suivi des delais</li>
+        <li>Preparation et execution des phases de recette</li>
+        <li>Creation et referencement de la documentation</li>
+        <li>Conduite du changement et accompagnement des utilisateurs</li>
+        <li>Mise en place d'un processus RUN ITIL via un outil ITSM (workflows, SLA, reporting KPI)</li>
+      </ul>
+    </div></article>
+    <article class="experience-card">
+      <div class="experience-head">
+        <h3 class="experience-title">Developpeur web — Contrat en alternance</h3>
+        <div class="experience-meta">
+          <span>Kipsum</span>
+          <span>Oct. 2022 - Oct. 2023</span>
+          <span>Nanterre, Ile-de-France</span>
+        </div>
+        <div class="experience-divider" aria-hidden="true"></div>
+      </div>
+      <div class="experience-body"><p class="experience-summary">
+        Kipsum aide a reduire la consommation d'energie des batiments grace a des outils numeriques et l'analyse de
+        donnees pour optimiser chauffage, climatisation et electricite.
+      </p>
+      <p class="experience-label">Missions principales</p>
+      <ul class="experience-list">
+        <li>Creation d'une API web avec Django REST Framework</li>
+        <li>Tests des requetes API avec Postman</li>
+        <li>Suivi des projets en methode agile</li>
+        <li>Amelioration de la qualite et de l'efficacite</li>
+      </ul>
+    </div></article>
+    <article class="experience-card">
+      <div class="experience-head">
+        <h3 class="experience-title">Developpeur web full stack — Stage</h3>
+        <div class="experience-meta">
+          <span>Hajime AI</span>
+          <span>Mai 2022 - Juin 2022</span>
+          <span>Paris, Ile-de-France</span>
+        </div>
+        <div class="experience-divider" aria-hidden="true"></div>
+      </div>
+      <div class="experience-body"><p class="experience-summary">
+        une entreprise française qui aide les acteurs de la santé (comme les institutions publiques, les laboratoires et les professionnels de santé) à engager les patients et les soignants.
+      </p>
+      <p class="experience-label">Missions principales</p>
+      <ul class="experience-list">
+        <li>Analyse et scraping de donnees</li>
+        <li>Mise en place d'un outil graphique d'analyse des donnees</li>
+        <li>Participation au suivi du projet et a la repartition des taches</li>
+      </ul>
+    </div></article>
+
+
+  </div>
+</section>
+
+      <section class="section light reveal" id="projets">
+        <div class="section-header">
+          <p class="section-title">Projets</p>
+        </div>
+        <div class="tabs" id="projets-tabs">
+          <div class="tab-buttons " role="tablist" aria-label="Parcours">
+            <button class="tab-button active" data-tab="mcsi" role="tab" aria-selected="true">
+              École Supérieure de Génie Informatique (MCSI)
+            </button>
+            <button class="tab-button" data-tab="openclassrooms" role="tab" aria-selected="false">
+              OpenClassrooms
+            </button>
+            <button class="tab-button" data-tab="vinci" role="tab" aria-selected="false">
+              Ecole Sup De Vinci Paris
+            </button>
+
+            
+          </div>
+
+          <div class="tabs-separator" aria-hidden="true"></div>          <div class="tab-panel grid" data-panel="vinci" role="tabpanel">
+            <p class="tab-desc">
+              Formation Administrateur des Systèmes d'Information — spécialisation Développement et Ingénierie
+              Informatique (2020-2023). Fondamentaux systèmes/réseaux, web, bases de données, cybersécurité et gestion
+              de projet Agile (niveau Bac+3).
+            </p>
+            <article class="project-card">
+              <img src="Image1.jpg" alt="Aperçu du projet Site e-commerce" />
+              <div class="project-content">
+                <h3>Site e-commerce</h3>
+                <p>
+                  Développement d'un site e-commerce à partir d'un CDCF en méthodologie agile, avec création des user
+                  stories, suivi des sprints, gestion d'équipe, implémentation d'une base de données et réalisation du
+                  front/back en React/Next.js.
+                </p>
+                <div class="tech">
+                  <span>React JS</span>
+                  <span>Tailwindcss</span>
+                  <span>Node js</span>
+                  <span>MySQL</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/hamzaoui12/projet_pro">GitHub</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="tab-panel grid" data-panel="openclassrooms" role="tabpanel">
+            <p class="tab-desc">
+              Formation Développeur d'application Fullstack (janvier-novembre 2024, diplôme obtenu). Conception
+              d'applications front/back, API REST, React/Next.js, bases SQL/NoSQL, tests et bonnes pratiques Agile.
+            </p>
+            <article class="project-card">
+              <img src="Booki.png" alt="Aperçu du projet Booki" />
+              <div class="project-content">
+                <h3>Booki</h3>
+                <p>
+                  Un site Internet qui permet aux usagers de trouver des hébergements et des activités dans la ville de
+                  leur choix.
+                </p>
+                <div class="tech">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/hamzaoui12/booki-starter-code">GitHub</a>
+                  <a href="https://hamzaoui12.github.io/booki-starter-code/">Démo</a>
+                </div>
+              </div>
+            </article>
+            <article class="project-card">
+              <img src="ohmyfood.png" alt="Aperçu du projet Ohmyfood" />
+              <div class="project-content">
+                <h3>Ohmyfood</h3>
+                <p>
+                  Un site qui répertorie les menus de restaurants gastronomiques. Les clients composent leur menu à
+                  l'avance.
+                </p>
+                <div class="tech">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/hamzaoui12/OhMyFood">GitHub</a>
+                  <a href="https://hamzaoui12.github.io/OhMyFood/">Démo</a>
+                </div>
+              </div>
+            </article>
+            <article class="project-card">
+              <img src="gameone.png" alt="Aperçu du projet GameOn" />
+              <div class="project-content">
+                <h3>GameOn</h3>
+                <p>Interface spécialisée pour des conférences et concours de jeux.</p>
+                <div class="tech">
+                  <span>HTML</span>
+                  <span>SCSS</span>
+                  <span>JavaScript</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/hamzaoui12/GameOn-website-FR">GitHub</a>
+                  <a href="https://hamzaoui12.github.io/GameOn-website-FR/">Démo</a>
+                </div>
+              </div>
+            </article>
+            <article class="project-card">
+              <img src="Fishaye.png" alt="Aperçu du projet FishEye" />
+              <div class="project-content">
+                <h3>FishEye</h3>
+                <p>Plateforme pour présenter le portfolio de photographes indépendants.</p>
+                <div class="tech">
+                  <span>HTML</span>
+                  <span>SCSS</span>
+                  <span>JavaScript</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/hamzaoui12/Front-End-Fisheye">GitHub</a>
+                  <a href="https://hamzaoui12.github.io/Front-End-Fisheye/">Démo</a>
+                </div>
+              </div>
+            </article>
+            <article class="project-card">
+              <img src="les petits plats.png" alt="Aperçu du projet Les Petits Plats" />
+              <div class="project-content">
+                <h3>Les Petits Plats</h3>
+                <p>Site de recettes de cuisine à l'instar de Marmiton ou 750g.</p>
+                <div class="tech">
+                  <span>HTML</span>
+                  <span>SCSS</span>
+                  <span>JavaScript</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/hamzaoui12/Les-petits-plats-P7">GitHub</a>
+                  <a href="https://hamzaoui12.github.io/Les-petits-plats-P7/">Démo</a>
+                </div>
+              </div>
+            </article>
+            <article class="project-card">
+              <img src="Billed.png" alt="Aperçu du projet Billed" />
+              <div class="project-content">
+                <h3>Billed</h3>
+                <p>
+                  Application SaaS RH : debug, tests unitaires et d'intégration en JavaScript, tests end-to-end manuels.
+                </p>
+                <div class="tech">
+                  <span>HTML</span>
+                  <span>SCSS</span>
+                  <span>JavaScript</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/hamzaoui12/billed-p9">GitHub</a>
+                </div>
+              </div>
+            </article>
+            <article class="project-card">
+              <img src="Kasa.png" alt="Aperçu du projet Kasa" />
+              <div class="project-content">
+                <h3>Kasa</h3>
+                <p>Refonte complète d'une stack JavaScript avec NodeJS (back) et React (front).</p>
+                <div class="tech">
+                  <span>React</span>
+                  <span>NodeJS</span>
+                  <span>SCSS</span>
+                  <span>Vite</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/hamzaoui12/projet11">GitHub</a>
+                </div>
+              </div>
+            </article>
+            <article class="project-card">
+              <img src="Sportsee.png" alt="Aperçu du projet SportSee" />
+              <div class="project-content">
+                <h3>SportSee</h3>
+                <p>
+                  Interface permettant à l'utilisateur de suivre ses sessions et le nombre de calories brûlées.
+                </p>
+                <div class="tech">
+                  <span>React</span>
+                  <span>NodeJS</span>
+                  <span>SCSS</span>
+                  <span>Vite</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/hamzaoui12/SportSee">GitHub</a>
+                </div>
+              </div>
+            </article>
+            <article class="project-card">
+              <img src="bank.png" alt="Aperçu du projet Argent Bank" />
+              <div class="project-content">
+                <h3>Argent Bank</h3>
+                <p>Interface de banque en ligne avec authentification et gestion de profil.</p>
+                <div class="tech">
+                  <span>React</span>
+                  <span>NodeJS</span>
+                  <span>Tailwindcss</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/hamzaoui12/Project-10-Bank-API">GitHub</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="tab-panel active grid" data-panel="mcsi" role="tabpanel">
+            <p class="tab-desc">
+              Formation en Management et Conseil en Systèmes d'Information à l'ESGI (2023-2026). Pilotage de projets
+              IT, architecture SI, sécurité, gouvernance ITIL, management d'équipes et innovation.
+            </p>
+            <article class="project-card">
+              <img src="virtustyle.png" alt="Aperçu du projet VirtuStyle" />
+              <div class="project-content">
+                <h3>VirtuStyle</h3>
+                <p>
+                  Cadrage du périmètre, user stories, planification et suivi des sprints, coordination d'équipe et
+                  suivi de la mise en œuvre jusqu'à la livraison.
+                </p>
+                <div class="tech">
+                  <span>UX/UI</span>
+                  <span>KPIs</span>
+                  <span>Architecture</span>
+                  <span>Tests & Qualité</span>
+                  <span>Méthodo projet</span>
+                  <span>RACI</span>
+                  <span>Risques</span>
+                  <span>Budget</span>
+                  <span>Conduite du changement</span>
+                </div>
+              </div>
+            </article>
+            <article class="project-card">
+              <img src="centraljob.png" alt="Aperçu du projet CentralJob" />
+              <div class="project-content">
+                <h3>CentralJob</h3>
+                <p>
+                  Plateforme centralisant le processus de candidature. Offres agrégées et suivi complet des candidatures.
+                </p>
+                <div class="tech">
+                  <span>Cahier des charges</span>
+                  <span>Étude de marché</span>
+                  <span>Budget</span>
+                  <span>Pilotage</span>
+                  <span>Risques</span>
+                  <span>Conduite du changement</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/hamzaoui12/central-job">GitHub</a>
+                  <a href="https://central-job.vercel.app/">Démo</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section light reveal" id="competences">
+  <div class="section-header">
+    <p class="section-title">Competences</p>
+  </div>
+  <div class="skills">
+    <div class="skill-group">
+      <div class="skill-title">Pilotage & Process</div>
+      <div class="skill-list">
+        <div class="skill">Pilotage projet transverse</div>
+        <div class="skill">Gouvernance (COPIL, COSUI)</div>
+        <div class="skill">Agile / Scrum</div>
+        <div class="skill">Cycle en V</div>
+        <div class="skill">gouvernance ITIL</div>
+        <div class="skill">Gestion backlog</div>
+        <div class="skill">Recueil besoins</div>
+        <div class="skill">Exigences fonctionnelles</div>
+        <div class="skill">Animation ateliers</div>
+        <div class="skill">Recette fonctionnelle</div>
+        <div class="skill">Gestion anomalies</div>
+        <div class="skill">MEP & suivi post-MEP</div>
+        <div class="skill">RUN (incidents, changements)</div>
+        <div class="skill">KPI & continuite de service</div>
+        <div class="skill">Conduite du changement</div>
+        <div class="skill">Formation & communication</div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-title">Stack technique</div>
+      <div class="skill-list">
+        <div class="skill">Python</div>
+        <div class="skill">Django</div>
+        <div class="skill">React.js</div>
+        <div class="skill">Next.js</div>
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">API REST</div>
+        <div class="skill">SQL</div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-title">Outils</div>
+      <div class="skill-list">
+        <div class="skill">Jira</div>
+        <div class="skill">ITSM</div>
+        <div class="skill">Microsoft 365</div>
+        <div class="skill">Klaxoon</div>
+        <div class="skill">Notion</div>
+        <div class="skill">Figma</div>
+        <div class="skill">Canva</div>
+        <div class="skill">Postman</div>
+        <div class="skill">MySQL</div>
+        <div class="skill">Git / GitHub</div>
+        <div class="skill">VS Code</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section class="section light reveal" id="contact">
+        <div class="section-header">
+    <p class="section-title">Contact</p>
+    <p class="section-intro">Je recherche aujourd'hui une opportunite en CDI/CDD pour mettre mes competences au service de projets ambitieux et structurants.</p>
+  </div>
+  <div class="contact">
+    <div class="contact-wrap">
+      <div class="contact-cards">
+        <a class="contact-card" href="mailto:merinahamz@gmail.com">
+          <span class="contact-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.6" />
+              <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.6" />
+            </svg>
+          </span>
+          <span>
+            <span class="contact-label">Email</span>
+            <span class="contact-value">merinahamz@gmail.com</span>
+          </span>
+        </a>
+        <a class="contact-card" href="tel:+33602961619">
+          <span class="contact-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M6 3h3l2 5-3 2a13 13 0 006 6l2-3 5 2v3a2 2 0 01-2 2c-8 0-14-6-14-14a2 2 0 012-2z" stroke="currentColor" stroke-width="1.6" />
+            </svg>
+          </span>
+          <span>
+            <span class="contact-label">Telephone</span>
+            <span class="contact-value">0602961619</span>
+          </span>
+        </a>
+        <a class="contact-card" href="https://www.linkedin.com/in/merina-hamzaoui/" target="_blank" rel="noopener">
+          <span class="contact-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M6 9h3v9H6zM6 6h3" stroke="currentColor" stroke-width="1.6" />
+              <path d="M12 9h3v1.5c.6-1 1.8-1.7 3.2-1.7 2.3 0 3.8 1.4 3.8 4.2V18h-3v-4.4c0-1.4-.7-2.2-1.8-2.2-1.2 0-2 .9-2 2.2V18h-3z" stroke="currentColor" stroke-width="1.6" />
+            </svg>
+          </span>
+          <span>
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value">merina-hamzaoui</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+      </section>
+    </main>
+
+    <script>
+      const tabButtons = document.querySelectorAll(".tab-button");
+      const tabPanels = document.querySelectorAll(".tab-panel");
+
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const target = button.dataset.tab;
+
+          tabButtons.forEach((item) => {
+            item.classList.toggle("active", item === button);
+            item.setAttribute("aria-selected", item === button ? "true" : "false");
+          });
+
+          tabPanels.forEach((panel) => {
+            panel.classList.toggle("active", panel.dataset.panel === target);
+          });
+        });
+      });
+
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      reveals.forEach((element) => observer.observe(element));
+    </script>
+  </body>
+</html>
+
+
+
